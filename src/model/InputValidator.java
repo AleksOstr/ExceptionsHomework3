@@ -1,9 +1,6 @@
 package model;
 
-import model.exceptions.ExtraDataException;
-import model.exceptions.InvalidGenderException;
-import model.exceptions.NotEnoughDataException;
-import model.exceptions.WrongDateException;
+import model.exceptions.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,10 +20,12 @@ public class InputValidator {
         } else return true;
     }
 
-    public boolean validateGender(String str) throws InvalidGenderException {
-        if (str.equals("f") || str.equals("m")) {
-            return true;
-        } else throw new InvalidGenderException("Invalid gender was entered");
+    private boolean validateName(String str) {
+        return str.matches("[a-z]+");
+    }
+
+    private boolean validateGender(String str) {
+        return str.equals("f") || str.equals("m");
     }
 
     private boolean validateDate(String strDate) {
