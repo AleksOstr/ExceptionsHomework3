@@ -8,7 +8,7 @@ import java.util.Date;
 
 
 public class InputValidator {
-    private final String nameFormat = "[a-z]+";
+    private final String nameFormat = "[a-zA-Z]+";
     private final String phoneFormat = "7\\d{10}";
     private final String genderMale = "m";
     private final String genderFemale = "f";
@@ -19,7 +19,7 @@ public class InputValidator {
             InvalidGenderException{
         String[] strArray = str.split(" ");
         validateDataCount(strArray);
-        if (!validateName(strArray[0]) || validateName(strArray[1]) || !validateName(strArray[2])) {
+        if (!validateName(strArray[0]) || !validateName(strArray[1]) || !validateName(strArray[2])) {
             throw new InvalidCharactersException("Invalid characters were entered in the name");
         }
         if (!validateDate(strArray[3])) {
