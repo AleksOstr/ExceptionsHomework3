@@ -1,6 +1,7 @@
 package model;
 
 import model.exceptions.ExtraDataException;
+import model.exceptions.InvalidGenderException;
 import model.exceptions.NotEnoughDataException;
 import model.exceptions.WrongDateException;
 
@@ -20,6 +21,12 @@ public class InputValidator {
         } else if (strArray.length < 6) {
             throw new NotEnoughDataException("Insufficient data was entered");
         } else return true;
+    }
+
+    public boolean validateGender(String str) throws InvalidGenderException {
+        if (str.equals("f") || str.equals("m")) {
+            return true;
+        } else throw new InvalidGenderException("Invalid gender was entered");
     }
 
     private boolean validateDate(String strDate) {
