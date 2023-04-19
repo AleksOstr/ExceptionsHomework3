@@ -16,7 +16,7 @@ public class InputValidator {
 
     public boolean validate(String str)
             throws NotEnoughDataException, ExtraDataException, InvalidCharactersException, WrongDateException,
-            InvalidGenderException{
+            InvalidGenderException {
         String[] strArray = str.split(" ");
         validateDataCount(strArray);
         if (!validateName(strArray[0]) || !validateName(strArray[1]) || !validateName(strArray[2])) {
@@ -56,7 +56,7 @@ public class InputValidator {
         format.setLenient(false);
         try {
             Date inputDate = format.parse(strDate);
-            if (inputDate.after(new Date())) {
+            if (inputDate.after(new Date()) || inputDate.before(format.parse("01.01.1900"))) {
                 return false;
             }
             return true;
