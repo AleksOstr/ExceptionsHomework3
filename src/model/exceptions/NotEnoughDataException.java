@@ -1,6 +1,6 @@
 package model.exceptions;
 
-public class NotEnoughDataException extends IllegalArgumentException{
+public class NotEnoughDataException extends Exception{
     public NotEnoughDataException(String message) {
         super(message);
     }
