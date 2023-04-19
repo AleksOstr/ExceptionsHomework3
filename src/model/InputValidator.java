@@ -10,17 +10,16 @@ import java.util.Date;
 
 
 public class InputValidator {
-    public boolean validateInput(String str) throws ExtraDataException, NotEnoughDataException, WrongDateException {
-        String[] strArray = str.split(" ");
+    public boolean validate(String str) {
+        // FIXME: 19.04.2023
+    }
+
+    private boolean validateDataCount(String[] strArray) throws NotEnoughDataException, ExtraDataException {
         if (strArray.length > 6) {
-            throw new ExtraDataException("Extra data entered");
+            throw new ExtraDataException("Extra data was entered");
         } else if (strArray.length < 6) {
-            throw new NotEnoughDataException("Insufficient data entered");
-        }
-        if (!validateDate(strArray[3])) {
-            throw new WrongDateException("Wrong date entered");
-        }
-        return true;
+            throw new NotEnoughDataException("Insufficient data was entered");
+        } else return true;
     }
 
     private boolean validateDate(String strDate) {
