@@ -30,7 +30,8 @@ public class InputValidator {
         }
         if (!validatePhoneNumber(strArray[5])) {
 
-            throw new InvalidCharactersException("Invalid characters were entered in the phone number");
+            throw new InvalidCharactersException("The length of the phone number must be strictly 11 characters. " +
+                    "The number must start with the number 7.");
         }
         return true;
     }

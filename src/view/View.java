@@ -15,7 +15,9 @@ public class View {
         while (true) {
             try {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Enter information about person or type \"exit\" to stop program:");
+                System.out.println("Enter information about person or type \"exit\" to stop program");
+                System.out.println("Data entry format: surname name patronymic date_of_birth gender phone_number, " +
+                        "(separator - space)");
                 String userInput = scanner.nextLine();
                 if (userInput.toLowerCase().equals("exit")) {
                     break;
